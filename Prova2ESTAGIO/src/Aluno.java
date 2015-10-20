@@ -79,11 +79,18 @@ public class Aluno implements Comparable<Aluno> {
 		this.proLeitura = proLeitura;
 	}
 
-	public double calculaFacilidadeMedia() {
+	public double calculaFacilidadeMedia() throws Exception {
+		if (this.curso == null) {
+			throw new Exception ( this.nome + " ainda nao esta matriculado em nenhum curso.");
+		}
 		return curso.calculaFacilidadeGenerica();
 	}
 
-	public double calculaFacilidade() {
+	public double calculaFacilidade() throws Exception {
+		if (this.curso == null) {
+			throw new Exception ( this.nome + " ainda nao esta matriculado em nenhum curso.");
+		}
+		
 		return curso.notaPorIdioma();
 	}
 
