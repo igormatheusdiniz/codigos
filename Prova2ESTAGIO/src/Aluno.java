@@ -1,4 +1,4 @@
-public class Aluno implements Comparable<Aluno>{
+public class Aluno implements Comparable<Aluno> {
 
 	// ordem de construcao: escrita, escuta, fala, leitura.
 	private String nome;
@@ -12,17 +12,27 @@ public class Aluno implements Comparable<Aluno>{
 	private factoryCursos factory;
 
 	public Aluno(String nome, double mensalidade, double proEscrita,
-			double proEscuta, double proFala, double proLeitura) {
+			double proEscuta, double proFala, double proLeitura)
+			throws Exception {
+		
+		if (proEscuta > 10 || proEscuta < 0 || proFala > 10 || proFala < 0
+				|| proLeitura > 10 || proLeitura < 0 || proEscrita > 10
+				|| proEscrita < 0) {
+			
+			throw new Exception ("Nivel de proficiencia invalido. Deve ser entre 0 e 10.");
+		}
+
 		this.nome = nome;
 		this.mensalidade = mensalidade;
-		this.proeficiencia = new Proeficiencia(proEscrita,proEscuta,proFala,proLeitura);
+		this.proeficiencia = new Proeficiencia(proEscrita, proEscuta, proFala,
+				proLeitura);
 		this.factory = new factoryCursos();
 		this.curso = null;
 	}
 
-	public void matricula(String nomeCurso) {
+	public void matricula(String nomeCurso) throws Exception {
 		this.curso = factory.criaCurso(nomeCurso);
-	
+
 	}
 
 	public String cumprimenta() {
@@ -79,12 +89,9 @@ public class Aluno implements Comparable<Aluno>{
 
 	@Override
 	public int compareTo(Aluno outroAluno) {
-		
+
 		int comparation = this.nome.compareTo(outroAluno.getNome());
 		return comparation;
 	}
-	
-	
-
 
 }

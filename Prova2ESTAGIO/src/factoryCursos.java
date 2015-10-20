@@ -1,35 +1,38 @@
-
 public class factoryCursos {
 
-	public Curso criaCursoIngles(){
+	public Curso criaCursoIngles() {
 		Curso novoCurso = new Ingles();
-		return  novoCurso;
+		return novoCurso;
 	}
-	
-	public Curso criaCursoSueco(){
+
+	public Curso criaCursoSueco() {
 		Curso novoCurso = new Sueco();
-		return novoCurso; 
+		return novoCurso;
 	}
-	
-	public Curso criaCursoJapones(){
+
+	public Curso criaCursoJapones() {
 		Curso novoCurso = new Japones();
 		return novoCurso;
 	}
 
-	public Curso criaCurso(String nomeCurso) {
-		
+	public Curso criaCurso(String nomeCurso) throws Exception {
+
 		Curso curso = null;
-		
+
 		if (nomeCurso.equals("Ingles")) {
 			curso = this.criaCursoIngles();
 		}
-		
+
 		else if (nomeCurso.equals("Japones")) {
 			curso = this.criaCursoJapones();
 		}
+
+		else if (nomeCurso.equals("Sueco")) {
+			curso = this.criaCursoSueco();
+		}
 		
-		else{ curso = this.criaCursoSueco();}
-	
+		else { throw new Exception ("HelloWorld não ensina " + nomeCurso);}
+
 		return curso;
 	}
 
