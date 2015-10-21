@@ -3,23 +3,20 @@ public class Aluno implements Comparable<Aluno> {
 	// ordem de construcao: escrita, escuta, fala, leitura.
 	private String nome;
 	private double mensalidade;
-	private double proEscrita;
-	private double proEscuta;
-	private double proFala;
-	private double proLeitura;
-	private Proeficiencia proeficiencia;
+	protected Proeficiencia proeficiencia;
 	private Curso curso;
 	private factoryCursos factory;
 
 	public Aluno(String nome, double mensalidade, double proEscrita,
 			double proEscuta, double proFala, double proLeitura)
 			throws Exception {
-		
+
 		if (proEscuta > 10 || proEscuta < 0 || proFala > 10 || proFala < 0
 				|| proLeitura > 10 || proLeitura < 0 || proEscrita > 10
 				|| proEscrita < 0) {
-			
-			throw new Exception ("Nivel de proficiencia invalido. Deve ser entre 0 e 10.");
+
+			throw new Exception(
+					"Nivel de proficiencia invalido. Deve ser entre 0 e 10.");
 		}
 
 		this.nome = nome;
@@ -63,35 +60,21 @@ public class Aluno implements Comparable<Aluno> {
 		return this.proeficiencia.getLeitura();
 	}
 
-	public void setProEscrita(double proEscrita) {
-		this.proEscrita = proEscrita;
-	}
-
-	public void setProEscuta(double proEscuta) {
-		this.proEscuta = proEscuta;
-	}
-
-	public void setProFala(double proFala) {
-		this.proFala = proFala;
-	}
-
-	public void setProLeitura(double proLeitura) {
-		this.proLeitura = proLeitura;
-	}
-
 	public double calculaFacilidadeMedia() throws Exception {
 		if (this.curso == null) {
-			throw new Exception ( this.nome + " ainda nao esta matriculado em nenhum curso.");
+			throw new Exception(this.nome
+					+ " ainda nao esta matriculado em nenhum curso.");
 		}
-		return curso.calculaFacilidadeGenerica();
+		return curso.calculaFacilidadeGenerica(this);
 	}
 
 	public double calculaFacilidade() throws Exception {
 		if (this.curso == null) {
-			throw new Exception ( this.nome + " ainda nao esta matriculado em nenhum curso.");
+			throw new Exception(this.nome
+					+ " ainda nao esta matriculado em nenhum curso.");
 		}
-		
-		return curso.notaPorIdioma();
+
+		return curso.notaPorIdioma(this);
 	}
 
 	@Override

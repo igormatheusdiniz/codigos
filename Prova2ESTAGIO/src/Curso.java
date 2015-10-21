@@ -4,14 +4,14 @@ public abstract class Curso {
 	protected double notaPorIdioma;
 	protected Proeficiencia proeficiencia;
 
-	public double calculaFacilidadeGenerica() {
+	public double calculaFacilidadeGenerica(Aluno aluno) {
 
-		return this.facilidadeGenerica = (proeficiencia.getEscrita()
-				+ proeficiencia.getEscuta() + proeficiencia.getFala() + proeficiencia
+		return this.facilidadeGenerica = (aluno.proeficiencia.getEscrita()
+				+ aluno.proeficiencia.getEscuta() + aluno.proeficiencia.getFala() + aluno.proeficiencia
 				.getLeitura()) / 4.0;
 	}
 
-	public abstract double notaPorIdioma();
+	public abstract double notaPorIdioma(Aluno aluno);
 	
 	public abstract String cumprimenta(String nome);
 

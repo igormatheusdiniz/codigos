@@ -1,9 +1,9 @@
 public class Japones extends Curso {
 
 	@Override
-	public double notaPorIdioma() {
-		return this.notaPorIdioma = (proeficiencia.getEscrita() * 0.6)
-				+ (proeficiencia.getLeitura() * 0.4);
+	public double notaPorIdioma(Aluno aluno) {
+		return this.notaPorIdioma = (aluno.proeficiencia.getEscrita() * 0.6)
+				+ (aluno.proeficiencia.getLeitura() * 0.4);
 	}
 
 	@Override

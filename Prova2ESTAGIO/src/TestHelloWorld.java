@@ -32,12 +32,17 @@ public class TestHelloWorld {
 			Assert.assertEquals("Brad Pitt", brad.getNome());
 			Assert.assertEquals("Lisbeth Salander", lisbeth.getNome());
 			Assert.assertEquals("Hayao Miyazaki", miyazaki.getNome());
-
+			
+			
 			Assert.assertEquals(500, brad.getMensalidade(), 0.1);
 			Assert.assertEquals(500, lisbeth.getMensalidade(), 0.1);
 			Assert.assertEquals(500, miyazaki.getMensalidade(), 0.1);
-
-			// letra b.
+			} catch (Exception exception) {
+			Assert.fail(); //nao deve entrar aqui.
+			}
+			
+			try {
+				// letra b.
 			// Brad Pitt: 7, 10, 10, 7.5
 			Assert.assertEquals(7.0, brad.getEscrita(), 0.1);
 			Assert.assertEquals(10.0, brad.getEscuta(), 0.1);
@@ -55,20 +60,33 @@ public class TestHelloWorld {
 			Assert.assertEquals(7.0, miyazaki.getEscuta(), 0.1);
 			Assert.assertEquals(5.0, miyazaki.getFala(), 0.1);
 			Assert.assertEquals(10.0, miyazaki.getLeitura(), 0.1);
-
+			} catch (Exception exception) {
+				Assert.fail(); //nao deve entrar aqui.
+			}
+			
+			try{
 			// LETRA C:
 			miyazaki.matricula("Japones");
 			lisbeth.matricula("Sueco");
 			brad.matricula("Ingles");
+			} catch (Exception exception) {
+				Assert.fail(); //nao deve entrar aqui.
+			}
+			
+			try{
 			
 			//LETRA D:
 			Assert.assertEquals(8.6, brad.calculaFacilidadeMedia(), 0.1);
 			Assert.assertEquals(9.0, lisbeth.calculaFacilidadeMedia(), 0.1);
 			Assert.assertEquals(8.0, miyazaki.calculaFacilidadeMedia(), 0.1);
+			} catch (Exception exception) {
+				Assert.fail(); //nao deve entrar aqui.
+			}
 			
+			try{
 			/*
 			  japones=(0.4*leitura)+ (0.6*escrita);
-			  inglês =(0.1*leitura)+ (0.5*escrita)+ (0.4*fala);
+			  inglï¿½s =(0.1*leitura)+ (0.5*escrita)+ (0.4*fala);
 			  sueco  =(0.1*leitura)+ (0.1*escrita)+ (0.3*fala) + (0.5*escuta)
 			*/
 			// Brad Pitt       : 7 , 10, 10, 7.5
@@ -77,15 +95,22 @@ public class TestHelloWorld {
 			Assert.assertEquals(8.2, brad.calculaFacilidade(), 0.1);
 			Assert.assertEquals(8.8, lisbeth.calculaFacilidade(), 0.1);
 			Assert.assertEquals(10.0, miyazaki.calculaFacilidade(), 0.1);
+			} catch (Exception exception) {
+				Assert.fail(); //nao deve entrar aqui.
+			}
 			
+			try{
 			//LETRA E:
 			String hiBrad = "Hello! I am Brad Pitt. Nice to meet you.";
-			String hiLisbeth = "Hej hej! Jag heter Lisbeth Salander. Trevligt att träffas.";
+			String hiLisbeth = "Hej hej! Jag heter Lisbeth Salander. Trevligt att troffas.";
 			String hiMiyazaki= "Hajimemashite. Watashi ha Hayao Miyazaki desu.";
 			Assert.assertEquals(hiBrad, brad.cumprimenta());
 			Assert.assertEquals(hiLisbeth, lisbeth.cumprimenta());
 			Assert.assertEquals(hiMiyazaki, miyazaki.cumprimenta());
-			
+			} catch (Exception exception) {
+				Assert.fail(); //nao deve entrar aqui.
+			}
+			try{
 			//LETRA F:
 			List<Aluno> alunos = new ArrayList<Aluno>();
 			alunos.add(lisbeth);
@@ -119,7 +144,7 @@ public class TestHelloWorld {
 			
 			//as saudacoes de cada idioma mudam.
 			String hiMiyazaki = "Hello! I am Hayao Miyazaki. Nice to meet you.";
-			String hiBrad = "Hej hej! Jag heter Brad Pitt. Trevligt att träffas.";
+			String hiBrad = "Hej hej! Jag heter Brad Pitt. Trevligt att troffas.";
 			Assert.assertEquals(hiBrad, brad.cumprimenta());
 			Assert.assertEquals(hiMiyazaki, miyazaki.cumprimenta());
 						
@@ -142,7 +167,7 @@ public class TestHelloWorld {
 			penelopeCruz.matricula("Espanhol");
 			Assert.fail();
 		} catch (Exception e) {
-			Assert.assertEquals("HelloWorld não ensina Espanhol", e.getMessage());
+			Assert.assertEquals("HelloWorld nï¿½o ensina Espanhol", e.getMessage());
 		}
 		
 		try {

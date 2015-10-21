@@ -2,8 +2,8 @@
 public class Ingles extends Curso {
 
 	@Override
-	public double notaPorIdioma() {
-		return this.notaPorIdioma = (proeficiencia.getEscrita()*0.5) + (proeficiencia.getLeitura()*0.1) + (proeficiencia.getFala()*0.4);
+	public double notaPorIdioma(Aluno aluno) {
+		return this.notaPorIdioma = (aluno.proeficiencia.getEscrita()*0.5) + (aluno.proeficiencia.getLeitura()*0.1) + (aluno.proeficiencia.getFala()*0.4);
 	}
 
 	@Override
