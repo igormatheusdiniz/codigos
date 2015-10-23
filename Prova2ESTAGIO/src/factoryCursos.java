@@ -31,7 +31,7 @@ public class factoryCursos {
 			curso = this.criaCursoSueco();
 		}
 		
-		else { throw new Exception ("HelloWorld não ensina " + nomeCurso);}
+		else { throw new Exception ("HelloWorld nao ensina " + nomeCurso);}
 
 		return curso;
 	}

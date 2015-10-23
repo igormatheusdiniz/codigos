@@ -167,7 +167,7 @@ public class TestHelloWorld {
 			penelopeCruz.matricula("Espanhol");
 			Assert.fail();
 		} catch (Exception e) {
-			Assert.assertEquals("HelloWorld n�o ensina Espanhol", e.getMessage());
+			Assert.assertEquals("HelloWorld nao ensina Espanhol", e.getMessage());
 		}
 		
 		try {
