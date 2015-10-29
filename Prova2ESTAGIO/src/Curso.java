@@ -2,7 +2,6 @@ public abstract class Curso {
 
 	protected double facilidadeGenerica;
 	protected double notaPorIdioma;
-	protected Proeficiencia proeficiencia;
 
 	public double calculaFacilidadeGenerica(Aluno aluno) {
 
